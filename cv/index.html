@@ -20,7 +20,7 @@
   ::selection{background:var(--yellow);color:var(--ink)}
   @media (max-width:860px){[data-shell]{flex-direction:column}[data-side]{width:100%!important;min-width:0!important;height:auto!important;position:static!important;border-right:none!important;border-bottom:2px solid var(--line)!important}[data-main]{padding:40px 26px!important}}
 </style>
-<script>(function(){try{var t=localStorage.getItem('theme');if(!t){t=(window.matchMedia&&matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </helmet>
 
 <div data-shell style="display:flex;min-height:100vh;background:var(--paper)">

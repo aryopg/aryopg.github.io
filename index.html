@@ -1,457 +1,229 @@
-<!DOCTYPE HTML>
-<!--
-	Prologue by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-	Edited by Aryo Pradipta Gema
--->
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>Aryo Pradipta Gema</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="google-site-verification" content="bk_axMV24hkwHapqc0ZBOEUA-J2PN0iNIsoHOg8kJfM" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-1FB0NGLG0F"></script>
-		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
-		
-		  gtag('config', 'G-1FB0NGLG0F');
-		</script>
-		
-	</head>
-	<body class="is-preload">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Aryo Pradipta Gema — AI Researcher</title>
+<meta name="description" content="Aryo Pradipta Gema is an AI researcher and PhD student at the University of Edinburgh working on the safety and reliability of large language models — hallucinations, reasoning failure modes, and misuse.">
+<meta name="author" content="Aryo Pradipta Gema">
+<link rel="canonical" href="https://aryopg.com/">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Aryo Pradipta Gema — AI Researcher">
+<meta property="og:description" content="AI researcher working on the safety and reliability of large language models.">
+<meta property="og:url" content="https://aryopg.com/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@aryopg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Aryo Pradipta Gema",
+  "givenName": "Aryo Pradipta",
+  "familyName": "Gema",
+  "url": "https://aryopg.com",
+  "image": "https://aryopg.com/photo.jpg",
+  "jobTitle": "AI Researcher · PhD Student",
+  "description": "AI researcher working on the safety and reliability of large language models — hallucinations, reasoning failure modes, and misuse.",
+  "knowsAbout": ["Artificial Intelligence Safety", "Large Language Models", "Natural Language Processing", "Hallucination Mitigation", "Machine Learning", "Biomedical AI"],
+  "alumniOf": [
+    {"@type": "CollegeOrUniversity", "name": "University of Edinburgh"},
+    {"@type": "CollegeOrUniversity", "name": "Bina Nusantara University"}
+  ],
+  "affiliation": {"@type": "CollegeOrUniversity", "name": "University of Edinburgh"},
+  "sameAs": [
+    "https://scholar.google.com/citations?user=Vf4Ij2MAAAAJ&hl=en",
+    "https://github.com/aryopg",
+    "https://x.com/aryopg",
+    "https://linkedin.com/in/aryopg"
+  ]
+}
+</script>
+<style>
+  *{box-sizing:border-box}
+  :root{
+    --paper:#f2efe6; --ink:#16120d; --muted:#6f685c; --line:#16120d; --line-soft:#d8d2c4;
+    --red:#d2402c; --blue:#234a9e; --yellow:#b98a10;
+  }
+  [data-theme="dark"]{
+    --paper:#15120d; --ink:#efeadf; --muted:#9a9282; --line:#efeadf; --line-soft:#352f26;
+    --red:#e8614b; --blue:#6f9be0; --yellow:#f1b338;
+  }
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink)}
+  ::selection{background:var(--yellow);color:var(--ink)}
+  @media (max-width:860px){
+    [data-shell]{flex-direction:column}
+    [data-side]{width:100%!important;min-width:0!important;height:auto!important;position:static!important;border-right:none!important;border-bottom:2px solid var(--line)!important}
+    [data-main]{padding:40px 26px!important}
+  }
+</style>
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t){t=(window.matchMedia&&matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</helmet>
 
-		<!-- Header -->
-			<div id="header">
+<div data-shell style="display:flex;min-height:100vh;background:var(--paper)">
+  <dc-import name="Nav" current="home" hint-size="300px,100vh"></dc-import>
 
-				<div class="top">
+  <main data-main style="flex:1;min-width:0;padding:72px 64px;font-family:'Computer Modern Serif',Georgia,serif;color:var(--ink)">
+    <div style="max-width:760px">
 
-					<!-- Logo -->
-						<div id="logo">
-							<span class="image avatar48"><img src="/images/avatar.png" alt="" /></span>
-							<h1 id="title">Aryo Gema</h1>
-							<p>PhD in Biomedical AI</p>
-						</div>
+      <!-- INTRO -->
+      <div style="font-family:'Computer Modern Typewriter',monospace;font-size:13px;letter-spacing:.14em;color:var(--blue);margin-bottom:18px">AI SAFETY · LANGUAGE MODELS · REASONING</div>
+      <sc-if value="{{ availableVisible }}" hint-placeholder-val="{{ true }}">
+        <div style="width:100%;margin-bottom:32px;border:2px solid var(--line);background:color-mix(in srgb, var(--yellow) 18%, var(--paper));padding:18px 20px;box-shadow:7px 7px 0 color-mix(in srgb, var(--ink) 12%, transparent)">
+          <div style="font-family:'Computer Modern Typewriter',monospace;font-size:12px;letter-spacing:.14em;color:var(--red);margin-bottom:8px">AVAILABLE</div>
+          <div style="font-size:19px;line-height:1.45;font-weight:700"><sc-for list="{{ availableSegs }}" as="seg" hint-placeholder-count="3"><sc-if value="{{ seg.toggle }}" hint-placeholder-val="{{ false }}"><button onClick="{{ toggleAvailability }}" style="font:inherit;font-weight:inherit;color:var(--blue);background:none;border:none;border-bottom:1px solid var(--blue);padding:0;cursor:pointer">{{ seg.text }}</button></sc-if><sc-if value="{{ seg.href }}" hint-placeholder-val="{{ false }}"><a href="{{ seg.href }}" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none;border-bottom:1px solid var(--blue)">{{ seg.text }}</a></sc-if><sc-if value="{{ seg.plain }}" hint-placeholder-val="{{ true }}">{{ seg.text }}</sc-if></sc-for><sc-if value="{{ availableMoreVisible }}" hint-placeholder-val="{{ false }}"> <span style="color:var(--muted)">{{ availableMore }}</span></sc-if></div>
+        </div>
+      </sc-if>
 
-					<!-- Nav -->
-						<nav id="nav">
-							<ul>
-								<li><a href="#top" id="top-link"><span class="icon solid fa-home">Hello, World!</span></a></li>
-								<li><a href="#about" id="about-link"><span class="icon solid fa-user">About Me</span></a></li>
-								<li><a href="#publications" id="publications-link"><span class="icon solid fa-book-open">Publications</span></a></li>
-								<li><a href="#education" id="education-link"><span class="icon solid fa-university">Education</span></a></li>
-								<li><a href="#experience" id="experience-link"><span class="icon solid fa-briefcase">Experience</span></a></li>
-								<li><a href="#talks" id="talks-link"><span class="icon solid fa-microphone-alt">Invited Talks</span></a></li>
-								<li><a href="#awards" id="awards-link"><span class="icon solid fa-trophy">Awards and Achievements</span></a></li>
-								<li><a href="#miscellaneous" id="miscellaneous-link"><span class="icon solid fa-boxes">Miscellaneous</span></a></li>
-							</ul>
-						</nav>
+      <!-- BIO -->
+      <div style="display:flex;gap:36px;align-items:flex-start;flex-wrap:wrap">
+        <div style="flex:1 1 520px;min-width:300px;display:flex;flex-direction:column;gap:16px;font-size:19px;line-height:1.55">
+          <sc-for list="{{ bioParas }}" as="p" hint-placeholder-count="3"><p style="margin:0"><sc-for list="{{ p.segs }}" as="seg" hint-placeholder-count="1"><sc-if value="{{ seg.href }}" hint-placeholder-val="{{ false }}"><a href="{{ seg.href }}" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none;border-bottom:1px solid var(--blue)" style-hover="background:var(--blue);color:var(--paper)">{{ seg.text }}</a></sc-if><sc-if value="{{ seg.plain }}" hint-placeholder-val="{{ true }}">{{ seg.text }}</sc-if></sc-for></p></sc-for>
+        </div>
+        <div style="width:172px;flex:none">
+          <div style="width:172px;height:200px;border:1.5px solid var(--line);overflow:hidden;background:var(--paper)">
+            <img src="photo.png" alt="Aryo Pradipta Gema" style="display:block;width:100%;height:100%;object-fit:cover">
+          </div>
+        </div>
+      </div>
 
-				</div>
+      <!-- RESEARCH -->
+      <div style="margin-top:44px">
+        <div style="font-size:20px;line-height:1.5;margin-bottom:20px;font-weight:700">{{ researchLead }}</div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <sc-for list="{{ researchItems }}" as="r" hint-placeholder-count="3">
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <span style="{{ r.markStyle }}"></span>
+              <div>
+                <div style="font-size:19px;font-weight:700;line-height:1.3">{{ r.title }}</div>
+                <div style="font-size:16px;color:var(--muted);line-height:1.45;margin-top:3px">{{ r.blurb }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <button onClick="{{ toggleMore }}" style="margin-top:18px;font-family:'Computer Modern Typewriter',monospace;font-size:13px;letter-spacing:.04em;background:none;border:1.5px solid var(--line);color:var(--ink);cursor:pointer;padding:6px 13px" style-hover="background:var(--ink);color:var(--paper)">{{ moreLabel }}</button>
+      </div>
 
-				<div class="bottom">
+      <!-- NEWS -->
+      <div style="margin-top:60px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid var(--line);padding-bottom:10px;margin-bottom:20px">
+          <div style="font-family:'Computer Modern Typewriter',monospace;font-size:12px;letter-spacing:.16em;color:var(--muted)">NEWS</div>
+          <span style="width:13px;height:13px;background:var(--ink)"></span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:15px">
+          <sc-for list="{{ newsItems }}" as="n" hint-placeholder-count="5">
+            <div style="display:flex;gap:18px;font-size:18px;line-height:1.45">
+              <span style="{{ n.dateStyle }}">{{ n.date }}</span>
+              <span><sc-for list="{{ n.segs }}" as="seg" hint-placeholder-count="1"><sc-if value="{{ seg.href }}" hint-placeholder-val="{{ false }}"><a href="{{ seg.href }}" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none;border-bottom:1px solid var(--blue)">{{ seg.text }}</a></sc-if><sc-if value="{{ seg.plain }}" hint-placeholder-val="{{ true }}">{{ seg.text }}</sc-if></sc-for> <sc-if value="{{ n.hasHref }}" hint-placeholder-val="{{ false }}"><a href="{{ n.href }}" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none">↗</a></sc-if></span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
 
-					<!-- Social Icons -->
-						<ul class="icons">
-							<li><a href="https://www.linkedin.com/in/aryopg/" class="icon brands fa-linkedin" target="_blank"><span class="label">Linkedin</span></a></li>
-							<li><a href="https://github.com/aryopg" class="icon brands fa-github" target="_blank"><span class="label">Github</span></a></li>
-							<li><a href="https://scholar.google.com/citations?user=Vf4Ij2MAAAAJ&hl=en&authuser=1" class="icon solid fa-graduation-cap" target="_blank"><span class="label">Google Scholar</span></a></li>
-							<li><a href="https://www.researchgate.net/profile/Aryo-Gema-2" class="icon brands fa-researchgate" target="_blank"><span class="label">ResearchGate</span></a></li>
-							<li><a href="mailto:aryopg@gmail.com" class="icon solid fa-envelope" target="_blank"><span class="label">Email</span></a></li>
-							<li><a href="https://lichess.org/@/charyo" class="icon solid fa-chess-knight" target="_blank"><span class="label">Chess</span></a></li>
-						</ul>
+      <!-- SELECTED PUBLICATIONS -->
+      <div style="margin-top:60px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid var(--line);padding-bottom:10px;margin-bottom:20px">
+          <div style="font-family:'Computer Modern Typewriter',monospace;font-size:12px;letter-spacing:.16em;color:var(--muted)">SELECTED PUBLICATIONS</div>
+          <a href="/publications" style="font-family:'Computer Modern Typewriter',monospace;font-size:13px;color:var(--blue);text-decoration:none">all →</a>
+        </div>
+        <div style="display:flex;flex-direction:column">
+          <sc-for list="{{ selectedPubs }}" as="pub" hint-placeholder-count="5">
+            <div style="padding:15px 0;border-bottom:1.5px solid var(--line-soft)">
+              <div>
+                <div style="font-size:19px;font-weight:700;line-height:1.28">{{ pub.title }}</div>
+                <div style="font-family:'Computer Modern Typewriter',monospace;font-size:13px;color:var(--muted);margin-top:5px">{{ pub.venue }} · {{ pub.year }} <sc-if value="{{ pub.hasArxiv }}" hint-placeholder-val="{{ false }}"><a href="{{ pub.arxiv }}" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none;margin-left:6px">arXiv ↗</a></sc-if></div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
 
-				</div>
+      <!-- CONTACT -->
+      <div style="margin-top:60px;border-top:2px solid var(--line);padding-top:24px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px">
+        <span style="font-size:19px">Reach me at</span>
+        <a href="{{ emailHref }}" style="font-size:19px;font-weight:700;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--ink)">{{ email }}</a>
+        <span style="font-family:'Computer Modern Typewriter',monospace;font-size:13px;color:var(--muted);margin-left:auto">{{ location }}</span>
+      </div>
 
-			</div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { site: null, news: [], pubs: [], showMore: false, availabilityOpen: false };
 
-		<!-- Main -->
-			<div id="main">
+  parseLinks(str) {
+    const parts = []; const re = /\[([^\]]+)\]\(([^)]+)\)/g; let last = 0, m;
+    while ((m = re.exec(str))) {
+      if (m.index > last) parts.push({ text: str.slice(last, m.index), plain: true });
+      parts.push({ text: m[1], href: m[2], plain: false });
+      last = m.index + m[0].length;
+    }
+    if (last < str.length) parts.push({ text: str.slice(last), plain: true });
+    return parts;
+  }
 
-				<!-- Intro -->
-					<section id="top" class="one dark cover">
-						<div class="container">
+  async componentDidMount() {
+    try {
+      const [s, n, p] = await Promise.all([
+        import('/data/site.js'), import('/data/news.js'), import('/data/publications.js')
+      ]);
+      this.setState({ site: s.site, news: n.news, pubs: p.publications });
+    } catch (e) { console.error(e); }
+  }
 
-							<header>
-								<h2 class="alt">Hi! I'm <strong>Aryo Pradipta Gema</strong>.</h2>
-								<p>Ph.D. in Biomedical AI at the University of Edinburgh</p>
-							</header>
-
-							<footer>
-								<a href="/downloads/CV_Aryo_Gema.pdf" target="_blank" class="button icon solid fa-file-invoice"> View CV</a>
-								<a href="#about" class="button scrolly icon solid fa-angle-down"></a>
-							</footer>
-
-						</div>
-					</section>
-
-				<!-- About Me -->
-					<section id="about" class="two">
-						<div class="container">
-
-							<header>
-								<h2>About Me</h2>
-							</header>
-
-							<p>Hi! My name is Aryo Pradipta Gema. I am currently a <a href="https://web.inf.ed.ac.uk/cdt/biomedical-ai/people/doctoral-researchers/2022-cohort#:~:text=in%20those%20fields.-,Aryo%20Gema,-Personal%20webpage" target="_blank">Ph.D. student in Biomedical AI</a> at the <a href="https://www.ed.ac.uk/" target="_blank">University of Edinburgh</a> under the supervision of <a href="https://www.ed.ac.uk/profile/dr-beatrice-alex" target="_blank">Dr. Beatrice Alex</a>, <a href="https://www.neuralnoise.com/" target="_blank">Dr. Pasquale Minervini</a>, and <a href="https://www.research.ed.ac.uk/en/persons/luke-daines" target="_blank">Dr. Luke Daines</a>. My research interests are in the intersection between NLP and the clinical domain, with a particular emphasis on <a href="https://arxiv.org/abs/2410.18860" target="_blank">mitigating hallucinations in LLMs</a> to enhance their reliability in healthcare applications.</p>
-
-						</div>
-					</section>
-
-				<!-- Publications -->
-					<section id="publications" class="three">
-						<div class="container">
-
-							<header>
-								<h2>Publications</h2>
-								<h3><a href="https://scholar.google.com/citations?user=Vf4Ij2MAAAAJ" target="_blank">See my Scholar's page for the full list</a></h3>
-							</header>
-
-<!-- 
-							<div>
-								<h3>2023</h3>
-								<li>
-									<strong style="font-weight: bold;">Parameter-Efficient Fine-Tuning of LLaMA for the Clinical Domain.</strong>
-									</br>
-									<small><strong style="font-weight: bold;">Aryo Pradipta Gema</strong>, Luke Daines, Pasquale Minervini, Beatrice Alex</small>
-								</li>
-								<li>
-									<strong style="font-weight: bold;">Knowledge Graph Embeddings in the Biomedical Domain: Are They Useful? A Look at Link Prediction, Rule Learning, and Downstream Polypharmacy Tasks.</strong>
-									</br>
-									<small><strong style="font-weight: bold;">Aryo Pradipta Gema</strong>, Dominik Grabarczyk, Wolf De Wulf, Piyush Borole, Javier Antonio Alfaro, Pasquale Minervini, Antonio Vergari, Ajitha Rajan</small>
-								</li>
-								<li>
-									<strong style="font-weight: bold;">Vaxformer: Antigenicity-controlled Transformer for Vaccine Design Against SARS-CoV-2.</strong>
-									</br>
-									<small><strong style="font-weight: bold;">Aryo Pradipta Gema</strong>, Michał Kobiela, Achille Fraisse, Ajitha Rajan, Diego A Oyarzún, Javier Antonio Alfaro</small>
-								</li>
-							</div>
-							<div>
-								<h3>2022</h3>
-								<li>
-									<strong style="font-weight: bold;">BERT and ULMFiT Ensemble for Personality Prediction from Indonesian Social Media Text.</strong>
-									</br>
-									<small>Noptovius Halimawan, Derwin Suhartono, <strong style="font-weight: bold;">Aryo Pradipta Gema</strong>, Rezki Yunanda</small>
-								</li>
-								<li>
-									<strong style="font-weight: bold;">Leveraging BERT with Extractive Summarization for Depression Detection on Social Media.</strong>
-									</br>
-									<small>David William, Said Achmad, Derwin Suhartono, <strong style="font-weight: bold;">Aryo Pradipta Gema</strong></small>
-								</li>
-							</div>
-							</br>
-							<div>
-								<h3>2021</h3>
-								<li>
-									<strong style="font-weight: bold;">Automatic Piano Sheet Music Transcription with Machine Learning.</strong>
-									</br>
-									<small>Fernandes Saputra, Un Greffin Namyu, Derwin Suhartono, <strong style="font-weight: bold;">Aryo Pradipta Gema</strong></small>
-								</li>
-							</div>
-							</br>
-							<div>
-								<h3>2020</h3>
-								<li>
-									<strong style="font-weight: bold;">Argument annotation and analysis using deep learning with attention mechanism in Bahasa Indonesia.</strong>
-									</br>
-									<small>Derwin Suhartono, <strong style="font-weight: bold;">Aryo Pradipta Gema</strong>, Suhendro Winton, Theodorus David, Mohamad Ivan Fanany, Aniati Murni Arymurthy</small>
-								</li>
-								<li>
-									<strong style="font-weight: bold;">Sequence-to-Sequence Learning for Motion-aware Claim Generation.</strong>
-									</br>
-									<small>Derwin Suhartono, <strong style="font-weight: bold;">Aryo Pradipta Gema</strong>, Suhendro Winton, Theodorus David, Mohamad Ivan Fanany, Aniati Murni Arymurthy</small>
-								</li>
-							</div>
-							</br>
-							<div>
-								<h3>2018</h3>
-								<li>
-									<strong style="font-weight: bold;">Attention-based Argumentation Mining.</strong>
-									</br>
-									<small>Derwin Suhartono, <strong style="font-weight: bold;">Aryo Pradipta Gema</strong>, Suhendro Winton, Theodorus David, Mohamad Ivan Fanany, Aniati Murni Arymurthy</small>
-								</li>
-								<li>
-									<strong style="font-weight: bold;">Facial Attractiveness Classification using Deep Learning.</strong>
-									</br>
-									<small>Ricky Anderson, <strong style="font-weight: bold;">Aryo Pradipta Gema</strong>, Suharjito Suharjito, Sani Muhamad Isa</small>
-								</li>
-							</div>
-							</br>
-							<div>
-								<h3>2017</h3>
-								<li>
-									<strong style="font-weight: bold;">Hierarchical Attention Network with XGBoost for Recognizing Insufficiently Supported Arguments.</strong>
-									</br>
-									<small>Derwin Suhartono, <strong style="font-weight: bold;">Aryo Pradipta Gema</strong>, Suhendro Winton, Theodorus David, Mohamad Ivan Fanany, Aniati Murni Arymurthy</small>
-								</li>
-								<li>
-									<strong style="font-weight: bold;">It Takes Two To Tango: Modification of Siamese Long Short Term Memory Network with Attention Mechanism in Recognizing Argumentative Relations in Persuasive Essay.</strong>
-									</br>
-									<small><strong style="font-weight: bold;">Aryo Pradipta Gema</strong>, Suhendro Winton, Theodorus David, Derwin Suhartono, Muhsin Shodiq, Wikaria Gazali</small>
-								</li>
-								<li>
-									<strong style="font-weight: bold;">Recurrent Neural Network (RNN) dan Gated Recurrent Unit (GRU).</strong>
-									</br>
-									<small><strong style="font-weight: bold;">Aryo Pradipta Gema</strong>, Derwin Suhartono</small>
-								</li>
-							</div>
- -->
-						</div>
-					</section>
-				
-				<!-- Education -->
-					<section id="education" class="two">
-						<div class="container">
-
-							<header>
-								<h2>Education</h2>
-							</header>
-							<div class="container">
-								<!-- <ul> -->
-								<li>
-									<strong style="font-weight: bold;"><a href="https://www.ed.ac.uk/" target="_blank">University of Edinburgh</a> - Edinburgh, Scotland</strong> (September 2022 - Present)
-									<p>Ph.D. in Biomedical AI (MSc(Res) expected August 2023)</p>
-								</li>
-								<li>
-									<strong style="font-weight: bold;"><a href="https://binus.ac.id/" target="_blank">Bina Nusantara University</a> - Jakarta, Indonesia</strong> (September 2014 - August 2018)
-									<p>Bachelor of Science in Computer Science</p>
-								</li>
-								<!-- </ul> -->
-							</div>
-						</div>
-					</section>
-
-				<!-- Experience -->
-					<section id="experience" class="three">
-						<div class="container">
-
-							<header>
-								<h2>Experience</h2>
-							</header>
-
-							<div class="timeline">
-								<ul>
-								  <li>
-									<div class="timeline-content">
-									  <h3 class="date">October 2021 - August 2022</h3>
-									  <h1>Senior Data Scientist at <a href="https://www.epigenelabs.com/" target="_blank">Epigene Labs</a></h1>
-									  <p>Paris, France</p>
-									</div>
-								  </li>
-								  <li>
-									<div class="timeline-content">
-										<h3 class="date">October 2019 - September 2021</h3>
-										<h1>Data Scientist at <a href="https://www.epigenelabs.com/" target="_blank">Epigene Labs</a></h1>
-										<p>Paris, France</p>
-									</div>
-								  </li>
-								  <li>
-									<div class="timeline-content">
-									  <h3 class="date">February 2019 - October 2019</h3>
-									  <h1>Staff AI Research Scientist at <a href="https://hrflow.ai/" target="_blank">Riminder</a></h1>
-									  <p>Paris, France</p>
-									</div>
-								  </li>
-								  <li>
-									<div class="timeline-content">
-									  <h3 class="date">October 2018 - January 2019</h3>
-									  <h1>AI Research Scientist at <a href="https://hrflow.ai/" target="_blank">Riminder</a></h1>
-									  <p>Paris, France</p>
-									</div>
-								  </li>
-								  <li>
-									<div class="timeline-content">
-									  <h3 class="date">September 2017 - July 2018</h3>
-									  <h1>Data Scientist at <a href="https://www.julo.co.id/" target="_blank">Julo</a></h1>
-									  <p>Jakarta, Indonesia</p>
-									</div>
-								  </li>
-								  <li>
-									<div class="timeline-content">
-									  <h3 class="date">March 2017 - July 2018</h3>
-									  <h1>Junior Deep Learning Researcher at <a href="https://binus.ac.id/" target="_blank">Bina Nusantara University</a></h1>
-									  <p>Jakarta, Indonesia</p>
-									</div>
-								  </li>
-								  <li>
-									<div class="timeline-content">
-									  <h3 class="date">July 2017 - September 2017</h3>
-									  <h1>Freelance Web Developer at <a href="https://global.remax.com/default.aspx" target="_blank">RE/MAX 2000</a></h1>
-									  <p>California, USA (Remote)</p>
-									</div>
-								  </li>
-								  <li>
-									<div class="timeline-content">
-									  <h3 class="date">August 2016 - July 2017</h3>
-									  <h1>Senior Software Engineer at <a href="https://www.linkedin.com/company/volantech/about/" target="_blank">volantech.io</a></h1>
-									  <p>Jakarta, Indonesia</p>
-									</div>
-								  </li>
-								  <li>
-									<div class="timeline-content">
-									  <h3 class="date">February 2016 - August 2016</h3>
-									  <h1>Senior Full Stack Developer at <a href="https://www.linkedin.com/company/anakmuda-net/about/" target="_blank">anakmuda.net</a></h1>
-									  <p>Jakarta, Indonesia</p>
-									</div>
-								  </li>
-								</ul>
-							</div>
-
-						</div>
-					</section>
-
-				<!-- Invited Talks -->
-					<section id="talks" class="two">
-						<div class="container">
-
-							<header>
-								<h2>Invited Talks</h2>
-							</header>
-
-							<li>DeCoRe: Decoding by Contrasting Retrieval Heads to Mitigate Hallucination, Centre for AI @AstraZeneca, December 2024</li>
-							<li>PhD in Clinical NLP, Epigene Labs, November 2024</li>
-							<li>Clinical NLP in the LLM era, Discovery Sciences @AstraZeneca, July 2024</li>
-							<li>Clinical NLP in the LLM era, Clinical NLP Group @University of Edinburgh, April 2024</li>
-							<li>Clinical NLP in the LLM era, CDT Biomedical AI @University of Edinburgh, April 2024</li>
-							<li>Parameter-efficient Fine-tuning of LLMs for the Clinical Domain, Bina Nusantara University, December 2023</li>
-							<li>Parameter-efficient Fine-tuning of LLMs for the Clinical Domain, Bina Nusantara University, November 2023</li>
-							<li>Knowledge Graph Embeddings in the Biomedical Domain, University of Edinburgh, November 2023</li>
-							<li>Parameter-efficient Fine-tuning of LLMs for the Clinical Domain, University of Edinburgh, October 2023</li>
-							<li>What is ChatGPT (<a href="https://summerschools.suttontrust.com/" target="_blank">Sutton Summer School</a>, July 2023) </li>
-							<li>Knowledge Graph Embeddings in the Biomedical Domain (<a href="https://binus.ac.id/" target="_blank">Bina Nusantara University</a>, May 2023) </li>
-							<li>Knowledge-Augmented Clinical Language Models (<a href="https://binus.ac.id/" target="_blank">Bina Nusantara University</a>, May 2023) </li>
-							<li>ChatGPT: A Biomedical AI Perspective (<a href="https://www.ed.ac.uk/" target="_blank">University of Edinburgh</a>, May 2023) </li>
-							<li>Knowledge-Augmented Clinical Language Models (<a href="https://binus.ac.id/" target="_blank">Bina Nusantara University</a>, March 2023) </li>
-							<li>Clinical Language Models (<a href="https://binus.ac.id/" target="_blank">Bina Nusantara University</a>, February 2023) </li>
-							<li>Building a Knowledge Base from Biomedical Literature (<a href="https://binus.ac.id/" target="_blank">Bina Nusantara University</a>, July 2022) </li>
-							<li>Augmenting Intelligence to Drug Discovery (<a href="https://binus.ac.id/" target="_blank">Bina Nusantara University</a>, December 2021) </li>
-							<li>Augmenting Intelligence to Drug Discovery (<a href="https://binus.ac.id/" target="_blank">Bina Nusantara University</a>, April 2021) </li>
-							<li>Introduction to Artificial Intelligence (<a href="https://binus.ac.id/" target="_blank">Bina Nusantara University</a>, October 2020) </li>
-
-						</div>
-					</section>
-
-				<!-- Awards -->
-					<section id="awards" class="three">
-						<div class="container">
-
-							<header>
-								<h2>Awards and Achievements</h2>
-							</header>
-
-							<div>
-								<h3>Academics</h3>
-								<!-- <ul> -->
-								<li>
-									<strong style="font-weight: bold;">Bina Nusantara University</strong> (August 2018)
-									<p>Binusian Award <small><i>(awarded to the most achieving graduate)</i></small></p>
-								</li>
-								<li>
-									<strong style="font-weight: bold;">Bina Nusantara University</strong> (August 2018)
-									<p>Magna Cum Laude</p>
-								</li>
-								<li>
-									<strong style="font-weight: bold;">International Conference on Computer Science and Computational Intelligence (ICCSCI)</strong> (July 2017)
-									<p>Best Presenter</p>
-								</li>
-								<li>
-									<strong style="font-weight: bold;">Penelitian Produk Terapan (PPT) Binus Research Grant</strong> (2017)
-									<p>Research Grant Awardee</p>
-								</li>
-								<li>
-									<strong style="font-weight: bold;">Bina Nusantara University</strong> (September 2015)
-									<p>Student of Excellence honor <small><i>(awarded to students with international and national achievements)</i></small></p>
-								</li>
-								<li>
-									<strong style="font-weight: bold;">Bina Nusantara University</strong> (2015)
-									<p>Binus Student Learning Community Scholarship awardee <small><i>(awarded to students who enrolled as mentors)</i></small></p>
-								</li>
-								<li>
-									<strong style="font-weight: bold;">Bina Nusantara University</strong> (December 2014)
-									<p>Student of Excellence honor <small><i>(awarded to students with international and national achievements)</i></small></p>
-								</li>
-								<!-- </ul> -->
-							</div>
-							
-							</br>
-
-							<div>
-								<h3>Other</h3>
-								<!-- <ul> -->
-								<li>
-									<strong style="font-weight: bold;">United Asian Debating Championship</strong> (July 2015)
-									<p>Quarterfinalist in English as Foreign Language Category</p>
-								</li>
-								<li>
-									<strong style="font-weight: bold;">Asian Law Students' Association University of Indonesia</strong> (April 2015)
-									<p>Octofinalist</p>
-								</li>
-								<li>
-									<strong style="font-weight: bold;">Asian Law Students' Association Universitas Padjadjaran</strong> (February 2015)
-									<p>Semifinalist and 8th Best Speaker</p>
-								</li>
-								<li>
-									<strong style="font-weight: bold;">Indonesian Varsity English Debate University of Indonesia</strong> (February 2015)
-									<p>Champion in Novice Category</p>
-								</li>
-								<li>
-									<strong style="font-weight: bold;">Founder’s Trophy Debating Championship University of Indonesia</strong> (December 2014)
-									<p>Best Novice Team</p>
-								</li>
-								<li>
-									<strong style="font-weight: bold;">Newbies Debating Championship University of Indonesia</strong> (November 2014)
-									<p>1st Runner Up and 3rd Best Speaker</p>
-								</li>
-								<!-- </ul> -->
-							</div>
-
-						</div>
-					</section>
-
-				<!-- Miscellaneous -->
-					<section id="miscellaneous" class="two">
-						<div class="container">
-
-							<header>
-								<h2>Miscellaneous</h2>
-							</header>
-
-							<h3>Languages:</h3>
-							<p>Indonesian – Native, English – Fluent, French – Basic</p>
-
-							<h3>Skills:</h3>
-							<p>Python, Golang, C++, Tensorflow, Pytorch, H2O, Scikit-Learn, spaCy, NLTK, Pandas, MySQL, MongoDB, Azure Cosmos DB, CI/CD</p>
-
-							<h3>Other Interests:</h3>
-							<p>Chess &#9823;, Parliamentary Debate &#128172;, Cooking &#128104;&#8205;&#127859;</p>
-
-						</div>
-					</section>
-
-			</div>
-
-		<!-- Footer -->
-			<div id="footer">
-
-				<!-- Copyright -->
-					<ul class="copyright">
-						<li>&copy; Aryo Pradipta Gema. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+  renderVals() {
+    const s = this.state.site || {};
+    const cols = ['var(--red)', 'var(--blue)', 'var(--yellow)'];
+    const shapes = [
+      'width:14px;height:14px;flex:none;margin-top:5px;background:var(--red)',
+      'width:14px;height:14px;flex:none;margin-top:5px;border-radius:50%;background:var(--blue)',
+      'width:0;height:0;flex:none;margin-top:5px;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:14px solid var(--yellow)'
+    ];
+    const research = s.research || { lead: '', current: [], more: [] };
+    const items = (research.current || []).concat(this.state.showMore ? (research.more || []) : []);
+    const me = 'Aryo Pradipta Gema';
+    const selectedPubs = (this.state.pubs || [])
+      .filter(p => p.selected)
+      .map((p, sourceIndex) => ({ ...p, sourceIndex }))
+      .sort((a, b) => {
+        const aFirstAuthor = (a.authors || '').startsWith(me);
+        const bFirstAuthor = (b.authors || '').startsWith(me);
+        if (aFirstAuthor !== bFirstAuthor) return aFirstAuthor ? -1 : 1;
+        return a.sourceIndex - b.sourceIndex;
+      });
+    return {
+      bioParas: (s.bio || []).map(p => ({ segs: this.parseLinks(p) })),
+      availableSegs: this.parseLinks(s.available || '').map(seg => seg.href === '#availability-details' ? { text: seg.text, toggle: true, plain: false } : seg),
+      availableVisible: !!s.available,
+      availableMore: s.availableMore || '',
+      availableMoreVisible: !!(this.state.availabilityOpen && s.availableMore),
+      toggleAvailability: () => this.setState({ availabilityOpen: !this.state.availabilityOpen }),
+      researchLead: research.lead || '',
+      researchItems: items.map((r, i) => ({ title: r.title, blurb: r.blurb, markStyle: shapes[i % 3] })),
+      moreLabel: this.state.showMore ? '\u2212 show less' : '+ and more',
+      toggleMore: () => this.setState({ showMore: !this.state.showMore }),
+      emailHref: s.emailHref || '#',
+      email: s.email || '',
+      location: s.location || '',
+      newsItems: (this.state.news || []).slice(0, 5).map((n, i) => ({
+        date: n.date, segs: this.parseLinks(n.text), href: n.href || '', hasHref: !!n.href,
+        dateStyle: `font-family:'Computer Modern Typewriter',monospace;font-size:13px;flex:none;width:78px;color:var(--muted)`
+      })),
+      selectedPubs: selectedPubs.map((p, i) => ({
+        title: p.title, venue: p.venue, year: p.year,
+        arxiv: (p.links && p.links.arxiv) || '', hasArxiv: !!(p.links && p.links.arxiv),
+        markStyle: shapes[i % 3]
+      }))
+    };
+  }
+}
+</script>
+</body>
 </html>

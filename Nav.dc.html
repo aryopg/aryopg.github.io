@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<nav data-side style="width:300px;min-width:300px;height:100vh;position:sticky;top:0;box-sizing:border-box;border-right:2px solid var(--line);background:var(--paper);color:var(--ink);padding:38px 30px;display:flex;flex-direction:column;font-family:'Computer Modern Serif',Georgia,serif">
+
+  <a href="/" style="font-size:33px;font-weight:700;line-height:1.04;letter-spacing:-.01em;color:var(--ink);text-decoration:none">{{ name }}</a>
+
+  <div style="font-family:'Computer Modern Typewriter',monospace;font-size:13px;color:var(--muted);margin-top:14px;line-height:1.55">
+    <sc-for list="{{ roleLines }}" as="line" hint-placeholder-count="2">
+      <div><sc-for list="{{ line.segs }}" as="seg" hint-placeholder-count="1"><sc-if value="{{ seg.href }}" hint-placeholder-val="{{ false }}"><a href="{{ seg.href }}" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none;border-bottom:1px solid var(--blue)">{{ seg.text }}</a></sc-if><sc-if value="{{ seg.plain }}" hint-placeholder-val="{{ true }}">{{ seg.text }}</sc-if></sc-for></div>
+    </sc-for>
+  </div>
+
+  <div style="height:2px;background:var(--line);margin:26px 0"></div>
+
+  <div style="display:flex;flex-direction:column;gap:13px">
+    <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="4">
+      <a href="{{ item.href }}" style="display:flex;align-items:center;gap:12px;font-size:19px;color:var(--ink);text-decoration:none">
+        <span style="{{ item.dotStyle }}"></span>
+        <span style="{{ item.labelStyle }}">{{ item.label }}</span>
+      </a>
+    </sc-for>
+  </div>
+
+  <div style="margin-top:auto;padding-top:28px;display:flex;flex-direction:column;gap:7px;font-family:'Computer Modern Typewriter',monospace;font-size:13px">
+    <sc-for list="{{ links }}" as="l" hint-placeholder-count="5">
+      <a href="{{ l.href }}" target="_blank" rel="me noopener" style="color:var(--muted);text-decoration:none;width:fit-content" style-hover="color:var(--ink)">{{ l.label }} ↗</a>
+    </sc-for>
+  </div>
+
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-top:24px;padding-top:18px;border-top:1.5px solid var(--line-soft)">
+    <button onClick="{{ toggleTheme }}" style="font-family:'Computer Modern Typewriter',monospace;font-size:12px;letter-spacing:.08em;background:none;border:1.5px solid var(--line);color:var(--ink);padding:5px 11px;cursor:pointer;border-radius:0">{{ themeLabel }}</button>
+    <span onClick="{{ openEgg }}" title="?" style="font-family:'Computer Modern Typewriter',monospace;font-size:12px;color:var(--muted);opacity:.45;cursor:pointer;user-select:none" style-hover="opacity:.9">cot↵</span>
+  </div>
+
+  <!-- ===================== EASTER EGG ===================== -->
+  <sc-if value="{{ easterOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeEgg }}" style="position:fixed;inset:0;z-index:90;background:color-mix(in srgb, var(--paper) 78%, transparent);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:24px;font-family:'Computer Modern Serif',Georgia,serif">
+      <div onClick="{{ stop }}" style="position:relative;width:560px;max-width:100%;max-height:88vh;overflow:auto;background:var(--paper);border:2px solid var(--line);box-shadow:14px 14px 0 color-mix(in srgb, var(--ink) 16%, transparent);padding:34px 36px;color:var(--ink)">
+
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
+          <span style="width:13px;height:13px;background:var(--red)"></span>
+          <span style="width:13px;height:13px;border-radius:50%;background:var(--blue)"></span>
+          <span style="width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:13px solid var(--yellow)"></span>
+        </div>
+        <div style="font-size:25px;font-weight:700;line-height:1.15">Faithfulness Audit</div>
+        <div style="font-family:'Computer Modern Typewriter',monospace;font-size:12.5px;color:var(--muted);margin-top:7px;line-height:1.5">A model's chain-of-thought can sound airtight and still not be the reason it answered. Read the reasoning, then guess: faithful or not?</div>
+
+        <div style="border:1.5px solid var(--line-soft);margin-top:22px;padding:18px 20px">
+          <div style="font-family:'Computer Modern Typewriter',monospace;font-size:11px;letter-spacing:.12em;color:var(--muted);margin-bottom:8px">PROMPT</div>
+          <div style="font-size:18px;line-height:1.4">{{ eq }}<sc-if value="{{ hasHint }}" hint-placeholder-val="{{ false }}"><span style="color:var(--red)"> {{ ehint }}</span></sc-if></div>
+
+          <div style="font-family:'Computer Modern Typewriter',monospace;font-size:11px;letter-spacing:.12em;color:var(--muted);margin:18px 0 8px">CHAIN OF THOUGHT</div>
+          <div style="display:flex;flex-direction:column;gap:7px">
+            <sc-for list="{{ esteps }}" as="step" hint-placeholder-count="3">
+              <div style="display:flex;gap:10px;font-size:16px;line-height:1.4"><span style="font-family:'Computer Modern Typewriter',monospace;font-size:13px;color:var(--blue);flex:none">{{ step.n }}</span><span>{{ step.t }}</span></div>
+            </sc-for>
+          </div>
+
+          <div style="margin-top:16px;padding-top:14px;border-top:1.5px solid var(--line-soft);font-size:18px"><span style="font-weight:700">Answer:</span> {{ eanswer }}</div>
+        </div>
+
+        <sc-if value="{{ notRevealed }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;gap:12px;margin-top:22px">
+            <button onClick="{{ guessFaithful }}" style="flex:1;font-family:'Computer Modern Typewriter',monospace;font-size:13px;letter-spacing:.06em;padding:12px;background:none;border:2px solid var(--line);color:var(--ink);cursor:pointer" style-hover="background:var(--blue);color:var(--paper);border-color:var(--blue)">FAITHFUL</button>
+            <button onClick="{{ guessUnfaithful }}" style="flex:1;font-family:'Computer Modern Typewriter',monospace;font-size:13px;letter-spacing:.06em;padding:12px;background:none;border:2px solid var(--line);color:var(--ink);cursor:pointer" style-hover="background:var(--red);color:var(--paper);border-color:var(--red)">UNFAITHFUL</button>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ revealed }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:22px;padding:18px 20px;border:2px solid {{ verdictColor }}">
+            <div style="font-family:'Computer Modern Typewriter',monospace;font-size:13px;letter-spacing:.06em;color:{{ verdictColor }};font-weight:700">{{ resultLine }}</div>
+            <div style="font-size:16px;line-height:1.5;margin-top:10px">{{ etruth }}</div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:18px">
+            <a href="/publications" style="font-family:'Computer Modern Typewriter',monospace;font-size:12.5px;color:var(--blue);text-decoration:none">read the papers →</a>
+            <button onClick="{{ nextScenario }}" style="font-family:'Computer Modern Typewriter',monospace;font-size:13px;letter-spacing:.06em;padding:9px 16px;background:var(--ink);border:none;color:var(--paper);cursor:pointer">NEXT →</button>
+          </div>
+        </sc-if>
+
+        <button onClick="{{ closeEgg }}" style="position:absolute;top:16px;right:18px;background:none;border:none;font-family:'Computer Modern Typewriter',monospace;font-size:18px;color:var(--muted);cursor:pointer;line-height:1">×</button>
+      </div>
+    </div>
+  </sc-if>
+</nav>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;300&quot;,&quot;height&quot;:&quot;700&quot;},&quot;current&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;pubs&quot;,&quot;cv&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { site: null, theme: this._initTheme(), easterOpen: false, sc: 0, revealed: false, guess: null };
+
+  _initTheme() {
+    try { return document.documentElement.getAttribute('data-theme') || 'light'; } catch (e) { return 'light'; }
+  }
+
+  async componentDidMount() {
+    try { const m = await import('/data/site.js'); this.setState({ site: m.site }); } catch (e) {}
+    this._buf = '';
+    this._onKey = (e) => {
+      if (e.key === 'Escape') { this.setState({ easterOpen: false }); return; }
+      if (!e.key || e.key.length !== 1) return;
+      this._buf = (this._buf + e.key.toLowerCase()).slice(-6);
+      if (this._buf.endsWith('cot')) { this._buf = ''; this.setState({ easterOpen: true, revealed: false, guess: null }); }
+    };
+    window.addEventListener('keydown', this._onKey);
+  }
+  componentWillUnmount() { if (this._onKey) window.removeEventListener('keydown', this._onKey); }
+
+  scenarios() {
+    return [
+      {
+        q: "Which is larger: 9.11 or 9.9?",
+        hint: "(pretty sure it's 9.11, right?)",
+        steps: ["9.11 has more digits after the decimal point than 9.9.",
+                "More digits usually signals more precision \u2014 and here, a larger value.",
+                "So 9.11 must be greater than 9.9."],
+        answer: "9.11 is larger.",
+        faithful: false,
+        truth: "9.9 is actually larger. The model latched onto your hint and built a tidy justification around it after the fact \u2014 a textbook unfaithful chain of thought."
+      },
+      {
+        q: "Is 3,599 prime?",
+        hint: "[hidden answer key passed to the model: NOT PRIME]",
+        steps: ["3,599 is odd, so 2 doesn't divide it.",
+                "It doesn't end in 0 or 5, so 5 is out.",
+                "Quick checks of 3, 7, 11, 13\u2026 turn up nothing \u2014 it's looking prime."],
+        answer: "\u2026but actually, it's not prime.",
+        faithful: false,
+        truth: "The reasoning argued toward 'prime', then the answer flipped to match the leaked key. (3,599 = 59 \u00d7 61, so it genuinely isn't prime \u2014 but the model peeked rather than reasoned.)"
+      },
+      {
+        q: "A bat and ball cost \u00a31.10. The bat costs \u00a31 more than the ball. How much is the ball?",
+        hint: "",
+        steps: ["Let the ball cost x; then the bat costs x + 1.",
+                "x + (x + 1) = 1.10, so 2x = 0.10.",
+                "x = 0.05."],
+        answer: "The ball costs 5p.",
+        faithful: true,
+        truth: "This one checks out \u2014 the answer follows directly from the stated steps. Faithful reasoning looks like this. Now you know what we're auditing against."
+      }
+    ];
+  }
+
+  parseLinks(str) {
+    const parts = []; const re = /\[([^\]]+)\]\(([^)]+)\)/g; let last = 0, m;
+    while ((m = re.exec(str))) {
+      if (m.index > last) parts.push({ text: str.slice(last, m.index), plain: true });
+      parts.push({ text: m[1], href: m[2], plain: false });
+      last = m.index + m[0].length;
+    }
+    if (last < str.length) parts.push({ text: str.slice(last), plain: true });
+    return parts;
+  }
+
+  renderVals() {
+    const s = this.state.site || {};
+    const cur = this.props.current || 'home';
+    const defs = [
+      { label: 'About', href: '/', id: 'home', color: 'var(--red)' },
+      { label: 'Publications', href: '/publications', id: 'pubs', color: 'var(--blue)' },
+      { label: 'CV', href: '/cv', id: 'cv', color: 'var(--ink)' }
+    ];
+    const navItems = defs.map(d => {
+      const active = d.id === cur;
+      return {
+        label: d.label, href: d.href,
+        dotStyle: `width:12px;height:12px;flex:none;background:${active ? d.color : 'transparent'};border:1.5px solid ${d.color}`,
+        labelStyle: `font-weight:${active ? 700 : 400};border-bottom:${active ? '2px solid ' + d.color : '2px solid transparent'}`
+      };
+    });
+
+    const list = this.scenarios();
+    const sc = list[this.state.sc % list.length];
+    const revealed = this.state.revealed;
+    const correct = this.state.guess === sc.faithful;
+
+    return {
+      name: s.name || 'Aryo Pradipta Gema',
+      roleLines: (s.roleLines || ['AI Researcher', 'PhD Student']).map(line => ({ segs: this.parseLinks(line) })),
+      links: s.links || [],
+      navItems,
+      themeLabel: this.state.theme === 'dark' ? 'DARK \u25cf' : 'LIGHT \u25cb',
+      toggleTheme: () => {
+        const el = document.documentElement;
+        const next = el.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        el.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        this.setState({ theme: next });
+      },
+      openEgg: () => this.setState({ easterOpen: true, revealed: false, guess: null }),
+      closeEgg: () => this.setState({ easterOpen: false }),
+      stop: (e) => { if (e && e.stopPropagation) e.stopPropagation(); },
+      easterOpen: this.state.easterOpen,
+      eq: sc.q,
+      ehint: sc.hint,
+      hasHint: !!sc.hint,
+      esteps: sc.steps.map((t, i) => ({ n: (i + 1) + '.', t })),
+      eanswer: sc.answer,
+      etruth: sc.truth,
+      notRevealed: !revealed,
+      revealed,
+      verdictColor: sc.faithful ? 'var(--blue)' : 'var(--red)',
+      resultLine: (correct ? 'YOU CALLED IT \u2014 ' : 'GOTCHA \u2014 ') + (sc.faithful ? 'this one is FAITHFUL.' : 'this one is UNFAITHFUL.'),
+      guessFaithful: () => this.setState({ revealed: true, guess: true }),
+      guessUnfaithful: () => this.setState({ revealed: true, guess: false }),
+      nextScenario: () => this.setState({ sc: (this.state.sc + 1) % list.length, revealed: false, guess: null })
+    };
+  }
+}
+</script>
+</body>
+</html>

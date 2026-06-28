@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Publications — Aryo Pradipta Gema</title>
+<meta name="description" content="Publications by Aryo Pradipta Gema on AI safety, large language models, hallucination, reasoning, and biomedical NLP.">
+<link rel="canonical" href="https://aryopg.com/publications">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css">
+<style>
+  *{box-sizing:border-box}
+  :root{--paper:#f2efe6;--ink:#16120d;--muted:#6f685c;--line:#16120d;--line-soft:#d8d2c4;--red:#d2402c;--blue:#234a9e;--yellow:#b98a10;}
+  [data-theme="dark"]{--paper:#15120d;--ink:#efeadf;--muted:#9a9282;--line:#efeadf;--line-soft:#352f26;--red:#e8614b;--blue:#6f9be0;--yellow:#f1b338;}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink)}
+  ::selection{background:var(--yellow);color:var(--ink)}
+  @media (max-width:860px){[data-shell]{flex-direction:column}[data-side]{width:100%!important;min-width:0!important;height:auto!important;position:static!important;border-right:none!important;border-bottom:2px solid var(--line)!important}[data-main]{padding:40px 26px!important}}
+</style>
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t){t=(window.matchMedia&&matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</helmet>
+
+<div data-shell style="display:flex;min-height:100vh;background:var(--paper)">
+  <dc-import name="Nav" current="pubs" hint-size="300px,100vh"></dc-import>
+
+  <main data-main style="flex:1;min-width:0;padding:72px 64px;font-family:'Computer Modern Serif',Georgia,serif;color:var(--ink)">
+    <div style="max-width:780px">
+      <h1 style="font-size:40px;font-weight:700;letter-spacing:-.015em;margin:0">Publications</h1>
+      <p style="font-size:18px;line-height:1.5;color:var(--muted);margin:14px 0 0;max-width:780px">Peer-reviewed papers and preprints. Full list also on <a href="https://scholar.google.com/citations?user=Vf4Ij2MAAAAJ&hl=en" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none">Google Scholar ↗</a>.</p>
+
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin:28px 0 8px">
+        <sc-for list="{{ chips }}" as="c" hint-placeholder-count="4">
+          <button onClick="{{ c.onClick }}" style="{{ c.style }}">{{ c.label }}</button>
+        </sc-for>
+      </div>
+
+      <sc-for list="{{ groups }}" as="g" hint-placeholder-count="3">
+        <div style="margin-top:40px">
+          <div style="display:flex;align-items:center;gap:12px;border-bottom:2px solid var(--line);padding-bottom:8px;margin-bottom:6px">
+            <span style="font-family:'Computer Modern Typewriter',monospace;font-size:22px;font-weight:700">{{ g.year }}</span>
+            <span style="font-family:'Computer Modern Typewriter',monospace;font-size:12px;color:var(--muted)">{{ g.count }}</span>
+          </div>
+          <sc-for list="{{ g.items }}" as="p" hint-placeholder-count="4">
+            <div style="padding:16px 0;border-bottom:1.5px solid var(--line-soft)">
+              <div style="min-width:0">
+                <div style="font-size:19px;font-weight:700;line-height:1.28">{{ p.title }}</div>
+                <div style="font-size:15px;line-height:1.45;color:var(--muted);margin-top:5px">{{ p.pre }}<strong style="color:var(--ink)">{{ p.nameHit }}</strong>{{ p.post }}</div>
+                <div style="font-family:'Computer Modern Typewriter',monospace;font-size:13px;color:var(--muted);margin-top:6px"><sc-if value="{{ p.hasVenueHref }}" hint-placeholder-val="{{ false }}"><a href="{{ p.venueHref }}" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none">{{ p.venue }}</a></sc-if><sc-if value="{{ p.venuePlain }}" hint-placeholder-val="{{ true }}">{{ p.venue }}</sc-if> · {{ p.year }} <sc-if value="{{ p.hasArxiv }}" hint-placeholder-val="{{ false }}"><a href="{{ p.arxiv }}" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none;margin-left:8px">arXiv ↗</a></sc-if></div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-for>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { pubs: [], me: 'Aryo Pradipta Gema', filter: 'all', venueLinks: {} };
+
+  async componentDidMount() {
+    try { const m = await import('/data/publications.js'); this.setState({ pubs: m.publications, me: m.me, venueLinks: m.venueLinks || {} }); }
+    catch (e) { console.error(e); }
+  }
+
+  renderVals() {
+    const me = this.state.me;
+    const filter = this.state.filter;
+    const colorFor = (t) => t === 'conference' ? 'var(--blue)' : t === 'journal' ? 'var(--red)' : 'var(--yellow)';
+    const markFor = (t) => t === 'conference'
+      ? 'width:13px;height:13px;flex:none;margin-top:6px;border-radius:50%;background:var(--blue)'
+      : t === 'journal'
+      ? 'width:13px;height:13px;flex:none;margin-top:6px;background:var(--red)'
+      : 'width:0;height:0;flex:none;margin-top:6px;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:13px solid var(--yellow)';
+
+    const filtered = (this.state.pubs || []).filter(p => filter === 'all' || p.type === filter);
+
+    // group by year desc
+    const byYear = {};
+    filtered.forEach(p => { (byYear[p.year] = byYear[p.year] || []).push(p); });
+    const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
+    const groups = years.map(y => ({
+      year: y,
+      count: byYear[y].length + (byYear[y].length === 1 ? ' paper' : ' papers'),
+      items: byYear[y].map(p => {
+        const idx = p.authors.indexOf(me);
+        const found = idx >= 0;
+        const vmap = this.state.venueLinks || {};
+        const vkey = Object.keys(vmap).find(k => p.venue && p.venue.indexOf(k) >= 0);
+        const venueHref = vkey ? vmap[vkey] : '';
+        return {
+          title: p.title,
+          pre: found ? p.authors.slice(0, idx) : p.authors,
+          nameHit: found ? me : '',
+          post: found ? p.authors.slice(idx + me.length) : '',
+          venue: p.venue, year: p.year, type: p.type,
+          venueHref, hasVenueHref: !!venueHref, venuePlain: !venueHref,
+          arxiv: (p.links && p.links.arxiv) || '', hasArxiv: !!(p.links && p.links.arxiv),
+          markStyle: markFor(p.type)
+        };
+      })
+    }));
+
+    const defs = [['all', 'ALL'], ['conference', 'CONFERENCE'], ['journal', 'JOURNAL'], ['preprint', 'PREPRINT']];
+    const chips = defs.map(([v, label]) => {
+      const active = filter === v;
+      return {
+        label, value: v,
+        onClick: () => this.setState({ filter: v }),
+        style: `font-family:'Computer Modern Typewriter',monospace;font-size:12px;letter-spacing:.06em;padding:7px 13px;cursor:pointer;border:1.5px solid var(--line);background:${active ? 'var(--ink)' : 'transparent'};color:${active ? 'var(--paper)' : 'var(--ink)'}`
+      };
+    });
+
+    return { groups, chips };
+  }
+}
+</script>
+</body>
+</html>

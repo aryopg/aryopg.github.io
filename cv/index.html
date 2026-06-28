@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>CV — Aryo Pradipta Gema</title>
+<meta name="description" content="Curriculum vitae of Aryo Pradipta Gema — AI researcher and PhD student at the University of Edinburgh.">
+<link rel="canonical" href="https://aryopg.com/cv">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css">
+<style>
+  *{box-sizing:border-box}
+  :root{--paper:#f2efe6;--ink:#16120d;--muted:#6f685c;--line:#16120d;--line-soft:#d8d2c4;--red:#d2402c;--blue:#234a9e;--yellow:#b98a10;}
+  [data-theme="dark"]{--paper:#15120d;--ink:#efeadf;--muted:#9a9282;--line:#efeadf;--line-soft:#352f26;--red:#e8614b;--blue:#6f9be0;--yellow:#f1b338;}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink)}
+  ::selection{background:var(--yellow);color:var(--ink)}
+  @media (max-width:860px){[data-shell]{flex-direction:column}[data-side]{width:100%!important;min-width:0!important;height:auto!important;position:static!important;border-right:none!important;border-bottom:2px solid var(--line)!important}[data-main]{padding:40px 26px!important}}
+</style>
+<script>(function(){try{var t=localStorage.getItem('theme');if(!t){t=(window.matchMedia&&matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</helmet>
+
+<div data-shell style="display:flex;min-height:100vh;background:var(--paper)">
+  <dc-import name="Nav" current="cv" hint-size="300px,100vh"></dc-import>
+
+  <main data-main style="flex:1;min-width:0;padding:72px 64px;font-family:'Computer Modern Serif',Georgia,serif;color:var(--ink)">
+    <div style="max-width:760px">
+
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px">
+        <h1 style="font-size:40px;font-weight:700;letter-spacing:-.015em;margin:0;flex:1 1 280px;min-width:260px">Curriculum Vitae</h1>
+        <a href="{{ pdfHref }}" target="_blank" rel="noopener" style="flex:none;font-family:'Computer Modern Typewriter',monospace;font-size:13px;letter-spacing:.06em;padding:9px 15px;border:2px solid var(--line);color:var(--ink);text-decoration:none;background:var(--paper)" style-hover="background:var(--ink);color:var(--paper)">DOWNLOAD PDF ↓</a>
+      </div>
+
+      <!-- EDUCATION -->
+      <div style="margin-top:44px">
+        <div style="display:flex;align-items:center;gap:12px;border-bottom:2px solid var(--line);padding-bottom:9px;margin-bottom:18px"><span style="width:13px;height:13px;background:var(--ink)"></span><div style="font-family:'Computer Modern Typewriter',monospace;font-size:12px;letter-spacing:.16em;color:var(--muted)">EDUCATION</div></div>
+        <sc-for list="{{ education }}" as="e" hint-placeholder-count="3">
+          <div style="margin-bottom:22px">
+            <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap"><div style="font-size:20px;font-weight:700">{{ e.degree }}</div><div style="font-family:'Computer Modern Typewriter',monospace;font-size:13px;color:var(--muted);white-space:nowrap">{{ e.dates }}</div></div>
+            <div style="font-size:16px;color:var(--blue);margin-top:3px"><sc-if value="{{ e.hasHref }}" hint-placeholder-val="{{ false }}"><a href="{{ e.href }}" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none;border-bottom:1px solid var(--blue)">{{ e.school }}</a></sc-if><sc-if value="{{ e.plain }}" hint-placeholder-val="{{ true }}">{{ e.school }}</sc-if> · {{ e.place }}</div>
+            <div style="margin-top:8px;display:flex;flex-direction:column;gap:5px">
+              <sc-for list="{{ e.notes }}" as="note" hint-placeholder-count="2"><div style="font-size:16px;line-height:1.45;color:var(--muted)">{{ note }}</div></sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div style="margin-top:40px">
+        <div style="display:flex;align-items:center;gap:12px;border-bottom:2px solid var(--line);padding-bottom:9px;margin-bottom:18px"><span style="width:13px;height:13px;border-radius:50%;background:var(--ink)"></span><div style="font-family:'Computer Modern Typewriter',monospace;font-size:12px;letter-spacing:.16em;color:var(--muted)">EXPERIENCE</div></div>
+        <sc-for list="{{ experience }}" as="x" hint-placeholder-count="5">
+          <div style="margin-bottom:22px">
+            <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap"><div style="font-size:20px;font-weight:700">{{ x.role }} <span style="font-weight:400;color:var(--muted)">— <sc-if value="{{ x.hasHref }}" hint-placeholder-val="{{ false }}"><a href="{{ x.href }}" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none;border-bottom:1px solid var(--blue)">{{ x.org }}</a></sc-if><sc-if value="{{ x.plain }}" hint-placeholder-val="{{ true }}">{{ x.org }}</sc-if></span></div><div style="font-family:'Computer Modern Typewriter',monospace;font-size:13px;color:var(--muted);white-space:nowrap">{{ x.dates }}</div></div>
+            <div style="font-size:15px;color:var(--blue);margin-top:3px">{{ x.place }}</div>
+            <div style="margin-top:8px;display:flex;flex-direction:column;gap:5px">
+              <sc-for list="{{ x.notes }}" as="note" hint-placeholder-count="2"><div style="font-size:16px;line-height:1.45;color:var(--muted)">{{ note }}</div></sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <!-- TALKS -->
+      <div style="margin-top:40px">
+        <div style="display:flex;align-items:center;gap:12px;border-bottom:2px solid var(--line);padding-bottom:9px;margin-bottom:18px"><span style="width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:13px solid var(--ink)"></span><div style="font-family:'Computer Modern Typewriter',monospace;font-size:12px;letter-spacing:.16em;color:var(--muted)">SELECTED TALKS</div></div>
+        <sc-for list="{{ talks }}" as="t" hint-placeholder-count="6">
+          <div style="display:flex;gap:16px;padding:9px 0;border-bottom:1.5px solid var(--line-soft)">
+            <span style="font-family:'Computer Modern Typewriter',monospace;font-size:13px;color:var(--muted);flex:none;width:78px">{{ t.date }}</span>
+            <div style="flex:1"><span style="font-size:17px">{{ t.title }}</span> <span style="font-size:15px;color:var(--muted)">— {{ t.venue }}</span></div>
+          </div>
+        </sc-for>
+      </div>
+
+      <!-- SERVICE + AWARDS -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:40px">
+        <div>
+          <div style="font-family:'Computer Modern Typewriter',monospace;font-size:12px;letter-spacing:.16em;color:var(--muted);border-bottom:2px solid var(--line);padding-bottom:9px;margin-bottom:14px">SERVICE</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <sc-for list="{{ service }}" as="s" hint-placeholder-count="3"><div style="font-size:16px;line-height:1.4">{{ s }}</div></sc-for>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Computer Modern Typewriter',monospace;font-size:12px;letter-spacing:.16em;color:var(--muted);border-bottom:2px solid var(--line);padding-bottom:9px;margin-bottom:14px">AWARDS</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <sc-for list="{{ awards }}" as="a" hint-placeholder-count="4"><div style="font-size:16px;line-height:1.4">{{ a }}</div></sc-for>
+          </div>
+        </div>
+      </div>
+
+      <!-- SKILLS -->
+      <div style="margin-top:40px">
+        <div style="font-family:'Computer Modern Typewriter',monospace;font-size:12px;letter-spacing:.16em;color:var(--muted);border-bottom:2px solid var(--line);padding-bottom:9px;margin-bottom:14px">SKILLS</div>
+        <sc-for list="{{ skillRows }}" as="r" hint-placeholder-count="4">
+          <div style="display:flex;gap:16px;padding:7px 0;align-items:baseline">
+            <span style="font-family:'Computer Modern Typewriter',monospace;font-size:13px;color:var(--blue);flex:none;width:120px">{{ r.k }}</span>
+            <span style="font-size:16px;line-height:1.4">{{ r.v }}</span>
+          </div>
+        </sc-for>
+        <div style="margin-top:14px;font-size:16px;color:var(--muted)">Other interests — {{ interests }}</div>
+      </div>
+
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { cv: null };
+  async componentDidMount() {
+    try { const m = await import('/data/cv.js'); this.setState({ cv: m.cv }); }
+    catch (e) { console.error(e); }
+  }
+  renderVals() {
+    const c = this.state.cv || {};
+    const skills = c.skills || {};
+    return {
+      pdfHref: c.pdfHref || '/cv.pdf',
+      education: (c.education || []).map(e => ({ ...e, hasHref: !!e.href, plain: !e.href })),
+      experience: (c.experience || []).map(x => ({ ...x, hasHref: !!x.href, plain: !x.href })),
+      talks: c.talks || [],
+      service: c.service || [],
+      awards: c.awards || [],
+      skillRows: Object.keys(skills).map(k => ({ k, v: skills[k] })),
+      interests: c.interests || ''
+    };
+  }
+}
+</script>
+</body>
+</html>
